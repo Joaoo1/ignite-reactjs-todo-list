@@ -31,6 +31,11 @@ export const Input = styled.input`
   padding: 1rem;
   color: ${({ theme }) => theme['gray-300']};
   align-self: flex-end;
+
+  :focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px ${({ theme }) => theme['purple-800']};
+  }
 `;
 
 export const CreateButton = styled.button`
@@ -41,7 +46,6 @@ export const CreateButton = styled.button`
   align-items: center;
   padding: 1rem;
   gap: 0.5rem;
-  cursor: pointer;
   border-color: transparent;
   font-weight: bold;
   font-size: 0.875rem;

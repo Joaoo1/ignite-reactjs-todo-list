@@ -3,8 +3,7 @@ import styled from 'styled-components';
 export const TasksContainer = styled.main`
   width: 100%;
   max-width: 46rem;
-  margin-top: 5.688rem;
-  margin-inline: auto;
+  margin: 5.688rem auto;
   padding-inline: 1rem;
 
   > header {
@@ -43,4 +42,7 @@ export const TasksList = styled.div`
   border-top: 2px solid ${({ theme }) => theme['gray-400']};
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 `;

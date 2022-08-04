@@ -22,5 +22,10 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 1rem;
+    line-height: 140%;
+  }
+
+  button {
+    cursor: pointer;
   }
 `;
