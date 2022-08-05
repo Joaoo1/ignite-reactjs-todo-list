@@ -13,7 +13,10 @@ export const Tasks = () => {
           Tarefas criadas<span>{tasks.length}</span>
         </p>
         <p>
-          Concluídas<span>{tasks.filter(t => t.isFinished).length}</span>
+          Concluídas
+          <span>
+            {tasks.filter(t => t.isFinished).length} de {tasks.length}
+          </span>
         </p>
       </header>
 
