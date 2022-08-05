@@ -22,6 +22,10 @@ type TaskProviderProps = {
 export const TaskProvider = ({ children }: TaskProviderProps) => {
   const [tasks, setTasks] = useState<Task[]>([]);
 
+  function sortTasks(tasksArr: Task[]) {
+    return tasksArr.sort((a, b) => +a.isFinished - +b.isFinished);
+  }
+
   function deleteTask(taskId: string) {
     const taskIndex = tasks.findIndex(task => task.id === taskId);
     if (taskIndex > -1) {
@@ -33,18 +37,22 @@ export const TaskProvider = ({ children }: TaskProviderProps) => {
 
   function createTask(text: string) {
     const id = Number(new Date()).toString();
-    setTasks(prevState => [...prevState, { id, text, isFinished: false }]);
+    setTasks(prevState =>
+      sortTasks([...prevState, { id, text, isFinished: false }])
+    );
   }
 
   function toggleTaskStatus(taskId: string) {
     const taskIndex = tasks.findIndex(task => task.id === taskId);
     if (taskIndex > -1) {
       setTasks(prevState =>
-        prevState.map(t => {
-          if (t.id === taskId) return { ...t, isFinished: !t.isFinished };
+        sortTasks(
+          prevState.map(t => {
+            if (t.id === taskId) return { ...t, isFinished: !t.isFinished };
 
-          return t;
-        })
+            return t;
+          })
+        )
       );
     }
   }
