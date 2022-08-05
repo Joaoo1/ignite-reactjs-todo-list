@@ -29,7 +29,7 @@ export const Input = styled.input`
   width: 100%;
   border: none;
   padding: 1rem;
-  color: ${({ theme }) => theme['gray-300']};
+  color: ${({ theme }) => theme['gray-100']};
   align-self: flex-end;
 
   :focus {
