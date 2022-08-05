@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const TaskItemContainer = styled.div`
+type TaskContainerProps = {
+  isFinished: boolean;
+};
+
+export const TaskItemContainer = styled.div<TaskContainerProps>`
   display: flex;
   align-items: flex-start;
   padding: 1rem;
@@ -15,9 +19,13 @@ export const TaskItemContainer = styled.div`
   }
 
   label {
-    color: ${({ theme }) => theme['gray-100']};
+    color: ${({ theme, isFinished }) =>
+      isFinished ? theme['gray-300'] : theme['gray-100']};
     font-size: 0.875rem;
     margin-right: 1.313rem;
+    width: 100%;
+    text-decoration: ${({ isFinished }) =>
+      isFinished ? 'line-through' : 'none'};
   }
 
   button {

@@ -18,7 +18,7 @@ export const TaskItem = ({ task }: TaskProps) => {
   }
 
   return (
-    <TaskItemContainer>
+    <TaskItemContainer isFinished={task.isFinished}>
       <input
         type="checkbox"
         name=""
